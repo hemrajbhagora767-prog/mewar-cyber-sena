@@ -3,44 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEWAR CYBER SENA</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#FF6B00">
-<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/306/306050.png">
+<title>Mewar Cyber Sena - 1930 Udaipur</title>
 <style>
-body{margin:0;background:#0f172a;color:white;font-family:sans-serif}
-.header{background:linear-gradient(90deg,#1e3a8a,#f59e0b);padding:15px;text-align:center;font-weight:bold;font-size:22px}
-.chat{padding:15px;height:70vh;overflow:auto}
-.msg{background:#334155;padding:10px 15px;border-radius:15px;margin:10px 0;max-width:80%}
-.footer{position:fixed;bottom:0;width:100%;background:#1e293b;padding:10px;display:flex;gap:5px}
-input{flex:1;padding:12px;border-radius:25px;border:none;outline:none}
-button{padding:12px 18px;border-radius:25px;border:none;font-weight:bold}
-.bhejo{background:#f59e0b} .call{background:#ef4444;color:white}
+body{margin:0;background:#0f172a;color:white;font-family:system-ui,sans-serif;padding-bottom:80px}
+.header{background:linear-gradient(90deg,#1e3a8a,#f59e0b);padding:12px;text-align:center;position:sticky;top:0;z-index:10}
+.logo-row{display:flex;justify-content:center;align-items:center;gap:12px}
+.logo{width:50px;height:50px;background:white;border-radius:50%;padding:4px;object-fit:contain;border:2px solid gold;box-shadow:0 2px 5px #000}
+.header h1{margin:6px 0 0 0;font-size:21px}
+.header p{margin:2px;font-size:13px;opacity:.95}
+.chat-box{padding:15px;max-width:600px;margin:auto}
+.msg{background:#1e293b;padding:12px 16px;border-radius:18px 18px 18px 4px;margin-bottom:12px;display:inline-block;max-width:85%;line-height:1.4}
+.msg.me{background:#f59e0b;color:#000;border-radius:18px 18px 4px 18px;margin-left:auto;display:block;width:fit-content}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.action-btn{background:#1e293b;border:1px solid #f59e0b;color:#f59e0b;padding:8px 12px;border-radius:20px;font-size:13px;cursor:pointer}
+.input-area{position:fixed;bottom:0;left:0;right:0;background:#0f172a;padding:10px;display:flex;gap:6px;border-top:1px solid #334155}
+.input-area input{flex:1;padding:12px 18px;border-radius:25px;border:none;outline:none;font-size:15px}
+.btn{border:none;padding:12px 16px;border-radius:25px;font-weight:bold;cursor:pointer}
+.btn-send{background:#f59e0b;color:black}
+.btn-1930{background:#ef4444;color:white}
+.whatsapp-float{position:fixed;bottom:80px;right:15px;background:#25D366;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px #0008;z-index:20;text-decoration:none;font-size:28px}
+.share-bar{background:#1e293b;margin:15px;padding:10px;border-radius:12px;text-align:center;border:1px dashed #f59e0b}
+.share-bar a{color:#25D366;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
-<div class="header">⚔️ MEWAR CYBER SENA ⚔️<br><small style="font-size:14px;font-weight:normal">1930 Helpline - Udaipur</small></div>
-<div class="chat">
-<div class="msg">Jai Mewar! Puchho - Complaint kaise karu?</div>
+<div class="header">
+  <div class="logo-row">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Emblem_of_Rajasthan.svg/800px-Emblem_of_Rajasthan.svg.png" class="logo">
+    <div style="font-size:32px">⚔️</div>
+    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" class="logo">
+  </div>
+  <h1>⚔️ MEWAR CYBER SENA ⚔️</h1>
+  <p>1930 Helpline - Udaipur | Jai Maharana Pratap</p>
 </div>
-<div class="footer">
-<input id="q" placeholder="Sawal likho...">
-<button class="bhejo" onclick="ask()">Bhejo</button>
-<button class="call" onclick="window.location.href='tel:1930'">1930</button>
+
+<div class="chat-box">
+  <div class="msg">Jai Mewar! 🚩 Main aapka Cyber Mitra hu.<br><br>👉 <b>1930</b> par call karo fraud hote hi<br>👉 cybercrime.gov.in par complaint karo<br><br>Kya puchhna chahte ho?</div>
+  <div class="actions">
+    <button class="action-btn" onclick="ask('Fraud ho gaya kya karu?')">Fraud ho gaya?</button>
+    <button class="action-btn" onclick="ask('Complaint kaise karu?')">Complaint kaise karu?</button>
+    <button class="action-btn" onclick="ask('1930 kya hai?')">1930 kya hai?</button>
+  </div>
+  <div class="share-bar">
+    🚩 Is sewa ko sab tak pahuchao<br>
+    <a href="#" onclick="shareWA()">📲 WhatsApp par Share Karo</a>
+  </div>
 </div>
+
+<a class="whatsapp-float" href="#" onclick="shareWA()" title="Share">💬</a>
+
+<div class="input-area">
+  <input id="q" type="text" placeholder="Sawal likho... jaise OTP fraud">
+  <button class="btn btn-send" onclick="send()">Bhejo</button>
+  <button class="btn btn-1930" onclick="window.location.href='tel:1930'">1930</button>
+</div>
+
 <script>
-function ask(){
- let v=document.getElementById('q').value;
- if(!v)return;
- let chat=document.querySelector('.chat');
- chat.innerHTML+=`<div class="msg" style="margin-left:auto;background:#f59e0b;color:black">${v}</div>`;
- document.getElementById('q').value='';
- setTimeout(()=>{
-   chat.innerHTML+=`<div class="msg">Aap 1930 par call karke ya cybercrime.gov.in par complaint kar sakte hain. Udaipur Cyber Cell aapki madad karega.</div>`;
-   chat.scrollTop=chat.scrollHeight;
- },800);
+function shareWA(){
+  let text = "🚩 *Mewar Cyber Sena - Udaipur* ⚔️%0AOnline Fraud se bacho! 1930 Helpline ki jankari yaha milegi:%0A👉 https://mewar-cyber-sena.onrender.com%0A%0AJai Mewar! Jai Maharana Pratap!";
+  window.open("https://wa.me/?text="+text, "_blank");
+}
+function ask(t){ document.getElementById('q').value=t; send(); }
+function send(){
+  let v=document.getElementById('q').value; if(!v) return;
+  let box=document.querySelector('.chat-box');
+  box.innerHTML+=`<div class="msg me">${v}</div><div class="msg">Aapne pucha: <b>${v}</b><br><br>Turant <b>1930</b> par call karo aur <b>cybercrime.gov.in</b> par report karo. Bank ko bhi inform karo. Screenshot rakho. Udaipur Cyber Cell aapki madad karega. 🚩</div>`;
+  document.getElementById('q').value=''; window.scrollTo(0,document.body.scrollHeight);
 }
 </script>
 </body>
-</html>0
+</html>
+0
 
