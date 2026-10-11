@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEWAR CYBER SENA</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#FF6B00">
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/306/306050.png">
+<style>
+body{margin:0;background:#0f172a;color:white;font-family:sans-serif}
+.header{background:linear-gradient(90deg,#1e3a8a,#f59e0b);padding:15px;text-align:center;font-weight:bold;font-size:22px}
+.chat{padding:15px;height:70vh;overflow:auto}
+.msg{background:#334155;padding:10px 15px;border-radius:15px;margin:10px 0;max-width:80%}
+.footer{position:fixed;bottom:0;width:100%;background:#1e293b;padding:10px;display:flex;gap:5px}
+input{flex:1;padding:12px;border-radius:25px;border:none;outline:none}
+button{padding:12px 18px;border-radius:25px;border:none;font-weight:bold}
+.bhejo{background:#f59e0b} .call{background:#ef4444;color:white}
+</style>
+</head>
+<body>
+<div class="header">⚔️ MEWAR CYBER SENA ⚔️<br><small style="font-size:14px;font-weight:normal">1930 Helpline - Udaipur</small></div>
+<div class="chat">
+<div class="msg">Jai Mewar! Puchho - Complaint kaise karu?</div>
+</div>
+<div class="footer">
+<input id="q" placeholder="Sawal likho...">
+<button class="bhejo" onclick="ask()">Bhejo</button>
+<button class="call" onclick="window.location.href='tel:1930'">1930</button>
+</div>
+<script>
+function ask(){
+ let v=document.getElementById('q').value;
+ if(!v)return;
+ let chat=document.querySelector('.chat');
+ chat.innerHTML+=`<div class="msg" style="margin-left:auto;background:#f59e0b;color:black">${v}</div>`;
+ document.getElementById('q').value='';
+ setTimeout(()=>{
+   chat.innerHTML+=`<div class="msg">Aap 1930 par call karke ya cybercrime.gov.in par complaint kar sakte hain. Udaipur Cyber Cell aapki madad karega.</div>`;
+   chat.scrollTop=chat.scrollHeight;
+ },800);
+}
+</script>
+</body>
+</html>0
+
